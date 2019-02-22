@@ -10,15 +10,27 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
-	
-		 <!-- API Servlet 4.0-->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.0</version>
-            <scope>provided</scope>
-        </dependency>
 
+		<!-- API Servlet 4.0 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		
+		<!-- Driver MySql -->
+		<!-- esse driver aqui não funcionou, baixe o .jar do mysql e coloque dentro da pasta lib do tomcat --> 
+		<!-- 
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.15</version>
+		</dependency>
+		-->
+		
+		
 
 	</dependencies>
 

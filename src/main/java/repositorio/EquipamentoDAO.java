@@ -26,13 +26,13 @@ public class EquipamentoDAO implements Serializable {
 	public void salvarEquipamento(Equipamento equipamento) {
 		
 		 try {
-	            PreparedStatement preparedStatement = connection.prepareStatement("insert into equipamento(descricao, numeroPatrimonio, local) values (?, ?, ? )");
+	            PreparedStatement preparedStatement = connection.prepareStatement("insert into equipamentos(descricao, numeroPatrimonio, local) values (?, ?, ? )");
 	            
 	            preparedStatement.setString(1, equipamento.getDescricao());
 	            
 	            preparedStatement.setString(2, equipamento.getNumeroPatrimonio());
 	            
-	            preparedStatement.setString(4, equipamento.getLocal());
+	            preparedStatement.setString(3, equipamento.getLocal());
 	            
 	            preparedStatement.executeUpdate();
 

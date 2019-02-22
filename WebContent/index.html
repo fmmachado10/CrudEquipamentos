@@ -13,26 +13,25 @@
 	
 		<legend>Cadastro de Equipamentos</legend>
 		
-		<form method="post" action="CrudEquipamentosServlet" name="formCurdEquipamentos">
+		<form action="CrudEquipamentosServlet" method="POST" id="formCrudEquipamentos">
 			<br>
 			<label>Id:</label> 
-			<input type="text" /> 
+			<input disabled /> 
 			<br>
 			
 			<label>Descição:</label> 
-			<input type="text" /> 
+			<input value="" name="descricao" maxlength="20" />
 			<br>
 			
-			<label>Número Patrimônio: </label>			
-			<input type="text" /> 
+			<label>Número Patrimonio:</label> 
+			<input value="" name="numeroPatrimonio" maxlength="20"/>
 			<br>
 			
-			<label>Local: </label> 
-			<input type="text" />
+			<label>Local:</label> 
+			<input value="" name="local" maxlength="20"/>
 			<br>
-			<br>
-
-			<button>Cadastrar</button>
+		
+			<button type="submit" value="submit">Cadastrar</button>
 			
 			
 			

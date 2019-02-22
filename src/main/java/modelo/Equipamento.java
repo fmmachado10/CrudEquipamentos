@@ -16,6 +16,10 @@ public class Equipamento implements Serializable {
 	private String numeroPatrimonio;
 	
 	private String local;
+	
+	public Equipamento() {
+		super();
+	}
 
 	public long getId() {
 		return id;
@@ -48,7 +52,6 @@ public class Equipamento implements Serializable {
 	public void setLocal(String local) {
 		this.local = local;
 	}
-	
-	
 
+	
 }
