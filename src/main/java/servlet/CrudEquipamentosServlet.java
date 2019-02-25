@@ -29,19 +29,52 @@ public class CrudEquipamentosServlet extends HttpServlet {
 
 		Equipamento equipamento = new Equipamento();
 
+		equipamento.setId(Long.parseLong(request.getParameter("id").toString()));
 		equipamento.setDescricao(request.getParameter("descricao"));
 		equipamento.setNumeroPatrimonio(request.getParameter("numeroPatrimonio"));
 		equipamento.setLocal(request.getParameter("local"));
 
+		
+		if (request.getParameter("submit").equals("submit_Buscar") ) {
+			
+			buscar(equipamento);
+			response.getWriter().println("Buscado com sucesso.");
+			
+		} else if (request.getParameter("submit").equals("submit_Cadastrar")) {
+			
+			cadastrar(equipamento);
+			response.getWriter().println("Cadastrado com sucesso.");
+			
+		} else if (request.getParameter("submit").equals("submit_Excluir")) {
+			
+			excluir(equipamento);
+			response.getWriter().println("Excluído com sucesso.");
+			
+		}
+	
+	}
+	
+	private void buscar(Equipamento equipamento) {
+		
+		equipamentoDAO = new EquipamentoDAO();
+		equipamentoDAO.buscarEquipamento(equipamento);
+		
+	}
+	
+	private void cadastrar(Equipamento equipamento) {
+		
 		equipamentoDAO = new EquipamentoDAO();
 		equipamentoDAO.salvarEquipamento(equipamento);
-
-		//carregarTabela(response);
-
-		response.getWriter().append("<h1>Equipamento cadastrado com sucesso.</h1>");
-		response.sendRedirect("/CrudEquipamentos/index.html");
-
+		
 	}
+	
+	private void excluir(Equipamento equipamento) {
+		
+		equipamentoDAO = new EquipamentoDAO();
+		equipamentoDAO.excluirEquipamento(equipamento);
+		
+	}
+	
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -52,46 +85,5 @@ public class CrudEquipamentosServlet extends HttpServlet {
 		System.out.println("método doPost...");
 
 	}
-
-	/*
-	private void carregarTabela(HttpServletResponse response) {
-
-		int rowCount = 0;
-
-		out.println("<P ALIGN='center'><TABLE BORDER=1>");
-
-		ResultSetMetaData rsmd = rs.getMetaData();
-
-		int columnCount = rsmd.getColumnCount(); // cabeçalho da tabela
-
-		out.println("<TR>");
-
-		for (int i = 0; i < columnCount; i++) {
-
-			out.println("<TH>" + rsmd.getColumnLabel(i + 1) + "</TH>");
-
-		}
-
-		out.println("</TR>"); // colocando os dados na tabela
-
-		while (rs.next()) {
-
-			rowCount++;
-
-			out.println("<TR>");
-
-			for (int i = 0; i < columnCount; i++) {
-				out.println("<TD>" + rs.getString(i + 1) + "</TD>");
-			}
-
-			out.println("</TR>");
-
-		}
-
-		out.println("</TABLE></P>");
-
-	}
 	
-	*/
-
 }

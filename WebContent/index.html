@@ -16,7 +16,8 @@
 		<form action="CrudEquipamentosServlet" method="POST" id="formCrudEquipamentos">
 			<br>
 			<label>Id:</label> 
-			<input disabled /> 
+			<input value="" name="id"/> 
+			<button type="submit" name="submit" value="submit_Buscar">Buscar</button>
 			<br>
 			
 			<label>Descição:</label> 
@@ -31,7 +32,11 @@
 			<input value="" name="local" maxlength="20"/>
 			<br>
 		
-			<button type="submit" value="submit">Cadastrar</button>
+			<button type="submit" name="submit" value="submit_Cadastrar">Cadastrar</button>
+			
+			<button type="submit" name="submit" value="submit_Excluir">Excluir</button>
+			
+			
 			
 			
 			
