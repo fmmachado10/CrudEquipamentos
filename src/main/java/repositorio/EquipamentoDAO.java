@@ -29,8 +29,7 @@ public class EquipamentoDAO implements Serializable {
 	public void salvarEquipamento(Equipamento equipamento) {
 
 		try {
-			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into equipamentos(descricao, numeroPatrimonio, local) values (?, ?, ? )");
+			PreparedStatement preparedStatement = connection.prepareStatement("insert into equipamentos(descricao, numeroPatrimonio, local) values (?, ?, ? )");
 
 			preparedStatement.setString(1, equipamento.getDescricao());
 
@@ -41,7 +40,9 @@ public class EquipamentoDAO implements Serializable {
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
+			
 			e.printStackTrace();
+			
 		}
 
 	}
@@ -95,11 +96,44 @@ public class EquipamentoDAO implements Serializable {
 	}
 
 	public void excluirEquipamento(Equipamento equipamento) {
+		
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement("delete equipamentos where Id = ? ");
+
+			preparedStatement.setLong(1, equipamento.getId());
+
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		}
 
 	}
 
 	public void atualizarEquipamento(Equipamento equipamento) {
 
+
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement("update equipamentos set (descricao, numeroPatrimonio, local) values (?, ?, ?) where id = ? ");
+
+			preparedStatement.setString(1, equipamento.getDescricao());
+
+			preparedStatement.setString(2, equipamento.getNumeroPatrimonio());
+
+			preparedStatement.setString(3, equipamento.getLocal());
+			
+			preparedStatement.setLong(4, equipamento.getId());			
+
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
 	}
 
 }
